@@ -12,13 +12,23 @@ class Cadastro{
 		$pass = "";
 		$dbname = "sistema";
 		$conexao=mysqli_connect($host,$user,$pass,$dbname);
+		$sqlval="select * from usuarios where email='$email'";
 
-		$insert=mysqli_query($conexao,$sql);
+		$validaremail=mysqli_query($conexao,$sqlval);
+		$contar=mysqli_num_rows($validaremail);
+		if ($contar==0) {
+			$insert=mysqli_query($conexao,$sql);
+		}else{
+			$flash="Já existe um usuário cadastrado com esse e-mail!";
+		}
 		if (isset($insert)) {
 			$flash="Cadastro realizado com sucesso, aguarde a nossa aprovação!";
 		}else{
+			if (empty($flash)) {
 			$flash="Ops! Houve algum erro em nosso sistema, contate o administrador!";
 		}
+	}
+
 		//retorno para o usuário
 		echo $flash;
 	}
