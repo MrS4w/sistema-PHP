@@ -12,7 +12,7 @@ include("includes/header.php");
 <body>
 	<div id="cadastrar"><a href="cadastro.php" title="Cadastre-se e venha fazer parte de nossa equipe!">Cadastre-se &raquo;</a></div>
 	<div id="login" class="form bradius">
-	<div class="message"></div>
+	<div class="message" style="<?php echo $display; ?>"></div>
 	<div align="center" class="logo"><a href="<?php echo $home;?>" title="<?php echo $title;?>"><img src="imagens/logo.jpg" alt="<?php echo $title;?>" title="<?php echo $title;?>" width="195" height="195"/></a></div>
 	<div class="acomodar">
 	<form action="" method="post">
