@@ -39,9 +39,9 @@ if ($startaction==1) {
 				else{
 					//executa a classe de cadastro
 					$conectar=new Cadastro;
-					echo "<div class=\'flash\'>";
+					echo '<div class="flash">';
 					$conectar=$conectar->cadastrar($nome,$end,$email,$senha);
-					echo "</div>";
+					echo '</div>';
 				}
 			}
 			//email inválido

@@ -30,13 +30,13 @@ body{
 .flash{
 	width: 100%;
 	height: 40px;
-	background: #C00;
-	opacity: 0.5;
+	background: red;
+	opacity: 1;
 	text-align: center;
 	line-height: 40px;
 	font: 400 18px Roboto;
-	color: #fff;
-	position: absolute;
+	color: black;
+	position: relative;
 	top: 0;
 	left: 0;
 }
@@ -45,7 +45,7 @@ body{
 	border-bottom-right-radius: 15px;
 	height: 40px;
 	width: 120px;
-	background: #f1f1f1;
+	background: #678b97;
 	text-align: center;
 	position: absolute;
 	right: 0;
@@ -63,11 +63,11 @@ body{
 #cadastrar a{
 	padding-top: 5px;
 	display: block;
-	color: #999;
+	color: black;
 	font: 400 18px Roboto;
 }
 #cadastrar:hover a{
-	color: #fff;
+	color: white;
 }
 #cadastrar:hover{
 	background: #678b97;
@@ -102,11 +102,13 @@ body{
 	margin-top: 10px;
 	cursor: pointer;
 	font: 400 18px Roboto;
+	color: black;
+	background: #678b97;
 
 }
 .sb:hover{
 	background: #678b97;
-	color: #fff;
+	color: white;
 }
 /* classes de herança */
 .bradius{
