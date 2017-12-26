@@ -11,7 +11,7 @@ if (isset($_GET["acao"])) {
 //include das classes
 include("classes/DB.class.php");
 include("classes/Cadastro.class.php");
-
+include("classes/Login.class.php");
 //conexão com banco de dados
 $conectar= new DB;
 $conectar=$conectar->conectar();
@@ -51,6 +51,34 @@ if ($startaction==1) {
 		}
 	}
 }
+//métodos de login
+if ($startaction==1) {
+	if ($acao=="logar") {
+		//Dados
+		$email=$_POST["email"];
+		$senha=sha1($_POST["senha"]."MrSaw");
+
+		if (empty($email)||empty($senha)) {
+			$msg="Preencha todos os campos!";
+		}else{
+			if (!filter_var($email,FILTER_VALIDATE_EMAIL)){
+				$msg="Digite seu email corretamente!";
+			}else{
+				//Executa a busca elo usuario
+				$login=new Login;
+				echo '<div class="flash">';
+				$login=$login->logar($email,$senha);
+				echo '</div>';
+			}
+		}
+	}
+}
+//método de checar usuario
+if (isset($_SESION["email"])&&isset($_SESION["senha"])) {
+ 	$logado=1;
+ 	$nivel=$_SESION["nivel"];
+ } 
+
 //Variáveis de estilo
 if (empty($msg)) {
 	$display="display:none;";
