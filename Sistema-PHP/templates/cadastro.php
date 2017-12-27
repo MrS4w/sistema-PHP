@@ -2,7 +2,7 @@
 $page="Cadastro";
 include ("header.php");
 ?>
-	<div id="cadastrar"><a href="index.php?acao=logout" title="Faça login!">Login &raquo;</a></div>
+	<div id="cadastrar"><a href="index.php?acao=login" title="Faça login!">Login &raquo;</a></div>
 	<div id="login" class="form bradius">
 	<div class="message bradius" style="<?php echo $display; ?>"><?php echo $msg;?></div>
 	<div align="center" class="logo"><a href="<?php echo $home;?>" title="<?php echo $title;?>"><img src="imagens/logo.jpg" alt="<?php echo $title;?>" title="<?php echo $title;?>" width="195" height="195"/></a></div>
