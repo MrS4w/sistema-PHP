@@ -1,4 +1,10 @@
 <?php  
+//Starts
+ob_start();
+session_start();
+
+
+
 //globais
 $home = "http://localhost/sistema-php";
 $title = "Página inicial";
@@ -74,9 +80,9 @@ if ($startaction==1) {
 	}
 }
 //método de checar usuario
-if (isset($_SESION["email"])&&isset($_SESION["senha"])) {
+if (isset($_SESSION["email"])&&isset($_SESSION["senha"])) {
  	$logado=1;
- 	$nivel=$_SESION["nivel"];
+ 	$nivel=$_SESSION["nivel"];
  } 
 
 //Variáveis de estilo

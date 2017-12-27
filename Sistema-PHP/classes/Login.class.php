@@ -20,6 +20,7 @@
 				setcookie("logado",1);
 				
 			}
+			
 			if (isset($log)) {
 				$flash="Logado com sucesso!";
 			}
@@ -31,7 +32,7 @@
 				$flash="Verifique se as informações inseridas estão corretas!";
 				}
 			}
-			echo $flash;
+			echo " $flash";
 		}
 	}
 ?>
