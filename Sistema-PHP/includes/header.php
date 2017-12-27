@@ -6,7 +6,7 @@ session_start();
 
 
 //globais
-$home = "http://localhost/sistema-php";
+$home = "http://localhost/sistema-php/";
 $title = "Página inicial";
 $startaction="";
 $msg="";
@@ -79,6 +79,15 @@ if ($startaction==1) {
 		}
 	}
 }
+//Método de logout
+if ($startaction==1) {
+	if ($acao=="logout") {
+		setcookie("logado","");
+		unset($_SESSION["email"],$_SESSION["senha"],$_SESSION["nivel"]);
+		}
+	}
+
+
 //método de checar usuario
 if (isset($_SESSION["email"])&&isset($_SESSION["senha"])) {
  	$logado=1;
