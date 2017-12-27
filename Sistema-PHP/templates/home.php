@@ -7,7 +7,36 @@ include("header.php");
 	<div class="message" style="<?php echo $display; ?>"></div>
 	<div align="center" class="logo"><a href="<?php echo $home;?>" title="<?php echo $title;?>"><img src="imagens/logo.jpg" alt="<?php echo $title;?>" title="<?php echo $title;?>" width="195" height="195"/></a></div>
 	<div class="acomodar">
-	<h1 align="center">Bem Vindo!</h1>
+		<?php if ($nivel==2) {
+		?>
+	<table width="100%" border="0">
+		<tr>
+			<th>Nome</th>
+			<th>Status</th>
+			<th>Ação</th>
+		</tr>
+		<?php
+		$cc=new DB;
+		$cc=$cc->conectar();
+		$sql="select * from usuarios where nivel=1";
+		$buscarusuarios=mysqli_query($cc,$sql);
+		if (mysqli_num_rows($buscarusuarios)==0) {
+			echo "Nenhum usuário cadastrado no sistema!";
+		}else{
+			while ($linha=mysqli_fetch_array($buscarusuarios)) {
+				
+			
+	  	?>
+	<tr>
+		<td><?php echo $linha["nome"];  ?></td>
+		<td><?php echo $linha["status"];  ?></td>
+		<td><?php if ($linha["status"]==0) {echo "Aprovar"; }else{echo "Bloquear"; }  ?></td>
+	</tr>
+	<?php } } ?>
+	</table>
+	<?php }else{ ?>
+	<p>Usuário comum!</p>
+<?php } ?>
 <!-- div do acomodar -->
 	</div>
 <!-- div do login -->
