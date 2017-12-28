@@ -9,9 +9,9 @@ include("header.php");
 	<div class="acomodar">
 		<?php if ($nivel==2) {
 		?>
-		<p align="center">Bem vindo ao painel administrativo!</p>
+		
 	<table width="100%" border="0">
-		<tr>
+		<tr align="center">
 			<th>Nome</th>
 			<th>Status</th>
 			<th>Ação</th>
@@ -24,19 +24,21 @@ include("header.php");
 		if (mysqli_num_rows($buscarusuarios)==0) {
 			echo "Nenhum usuário cadastrado no sistema!";
 		}else{
+			echo '<p align="center">Bem vindo administrador!</p>';
 			while ($linha=mysqli_fetch_array($buscarusuarios)) {
 				
 			
 	  	?>
-	<tr>
+	<tr align="center">
 		<td><?php echo $linha["nome"];  ?></td>
 		<td><?php echo $linha["status"];  ?></td>
 		<td><?php $id=$linha["ID"]; if($linha["status"]==0) {echo "<a href='index.php?acao=aprovar&amp;id=$id'>Aprovar</a>"; }else{echo "<a href='index.php?acao=bloquear&amp;id=$id'>Bloquear</a>"; }  ?></td>
 	</tr>
 	<?php } } ?>
 	</table>
-	<?php }else{ ?>
-	<p>Usuário comum!</p>
+	<?php }else{ 
+		?>
+	<p align="center">Seja bem vindo!</p>
 <?php } ?>
 <!-- div do acomodar -->
 	</div>
