@@ -3,14 +3,7 @@
 ob_start();
 session_start();
 //Globais
-$home = "http://localhost/sistema-php/";
-$title = "Página inicial";
-$startaction="";
-$msg="";
-if (isset($_GET["acao"])) {
-	$acao=$_GET["acao"];
-	$startaction=1;
-}
+include("globais.php");
 //include das classes
 include("classes/DB.class.php");
 include("classes/Cadastro.class.php");
