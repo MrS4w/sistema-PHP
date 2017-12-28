@@ -86,14 +86,37 @@ if ($startaction==1) {
 		unset($_SESSION["email"],$_SESSION["senha"],$_SESSION["nivel"]);
 		}
 	}
-
-
 //método de checar usuario
 if (isset($_SESSION["email"])&&isset($_SESSION["senha"])) {
  	$logado=1;
  	$nivel=$_SESSION["nivel"];
  } 
+//Método de aprovar
+if ($startaction==1) {
+	if ($acao=="aprovar") {
+		if($nivel==2){
+			if (isset($_GET["id"])) {
+				$id=$_GET["id"];
+				$sql="update usuarios set status=1 where id='$id'";
+				$query=mysqli_query($conectar,$sql);
 
+			}
+		}
+	}
+}
+//Método de bloquar
+if ($startaction==1) {
+	if ($acao=="bloquear") {
+		if($nivel==2){
+			if (isset($_GET["id"])) {
+				$id=$_GET["id"];
+				$sql="update usuarios set status=0 where id='$id'";
+				$query=mysqli_query($conectar,$sql);
+
+			}
+		}
+	}
+}
 //Variáveis de estilo
 if (empty($msg)) {
 	$display="display:none;";

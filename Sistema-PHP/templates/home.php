@@ -30,7 +30,7 @@ include("header.php");
 	<tr>
 		<td><?php echo $linha["nome"];  ?></td>
 		<td><?php echo $linha["status"];  ?></td>
-		<td><?php if ($linha["status"]==0) {echo "Aprovar"; }else{echo "Bloquear"; }  ?></td>
+		<td><?php $id=$linha["ID"]; if($linha["status"]==0) {echo "<a href='index.php?acao=aprovar&amp;id=$id'>Aprovar</a>"; }else{echo "<a href='index.php?acao=bloquear&amp;id=$id'>Bloquear</a>"; }  ?></td>
 	</tr>
 	<?php } } ?>
 	</table>
