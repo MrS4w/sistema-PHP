@@ -23,8 +23,7 @@ $conectar= new DB;
 $conectar=$conectar->conectar();
 
 //método de cadastro
-if ($startaction==1) {
-	if ($acao=="cadastrar") {
+if ($startaction==1 && $acao=="cadastrar") {
 		$nome=$_POST["nome"];
 		$end=$_POST["end"];
 		$email=$_POST["email"];
@@ -53,13 +52,11 @@ if ($startaction==1) {
 			//email inválido
 			else{
 				$msg="Digite seu e-mail corretamente!";
-			}
 		}
 	}
 }
 //métodos de login
-if ($startaction==1) {
-	if ($acao=="logar") {
+if ($startaction==1 && $acao=="logar") {
 		//Dados
 		$email=$_POST["email"];
 		$senha=sha1($_POST["senha"]."MrSaw");
@@ -75,16 +72,15 @@ if ($startaction==1) {
 				echo '<div class="flash">';
 				$login=$login->logar($email,$senha);
 				echo '</div>';
-			}
 		}
 	}
 }
+
 //Método de logout
-if ($startaction==1) {
-	if ($acao=="logout") {
+if ($startaction==1 && $acao=="logout") {
 		setcookie("logado","");
 		unset($_SESSION["email"],$_SESSION["senha"],$_SESSION["nivel"]);
-		}
+		
 	}
 //método de checar usuario
 if (isset($_SESSION["email"])&&isset($_SESSION["senha"])) {
@@ -92,28 +88,22 @@ if (isset($_SESSION["email"])&&isset($_SESSION["senha"])) {
  	$nivel=$_SESSION["nivel"];
  } 
 //Método de aprovar
-if ($startaction==1) {
-	if ($acao=="aprovar") {
+if ($startaction==1 && $acao=="aprovar") {
 		if($nivel==2){
 			if (isset($_GET["id"])) {
 				$id=$_GET["id"];
 				$sql="update usuarios set status=1 where id='$id'";
 				$query=mysqli_query($conectar,$sql);
-
-			}
 		}
 	}
 }
 //Método de bloquar
-if ($startaction==1) {
-	if ($acao=="bloquear") {
+if ($startaction==1 && $acao=="bloquear") {
 		if($nivel==2){
 			if (isset($_GET["id"])) {
 				$id=$_GET["id"];
 				$sql="update usuarios set status=0 where id='$id'";
 				$query=mysqli_query($conectar,$sql);
-
-			}
 		}
 	}
 }

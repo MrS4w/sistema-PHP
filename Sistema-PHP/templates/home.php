@@ -9,6 +9,7 @@ include("header.php");
 	<div class="acomodar">
 		<?php if ($nivel==2) {
 		?>
+		<p align="center">Bem vindo ao painel administrativo!</p>
 	<table width="100%" border="0">
 		<tr>
 			<th>Nome</th>
